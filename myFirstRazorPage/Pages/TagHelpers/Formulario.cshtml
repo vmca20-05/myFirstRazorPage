@@ -1,0 +1,57 @@
+﻿@page
+@model myFirstRazorPage.Pages.TagHelpers.FormularioModel
+
+@{
+    ViewData["Title"] = "Formulario";
+}
+
+<h2>Formulario</h2>
+
+<h4>Pasajero</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Pasajero.Nombre" class="control-label"></label>
+                <input asp-for="Pasajero.Nombre" class="form-control" />
+                <span asp-validation-for="Pasajero.Nombre" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Pasajero.Edad" class="control-label"></label>
+                <input asp-for="Pasajero.Edad" class="form-control" />
+                <span asp-validation-for="Pasajero.Edad" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Pasajero.Pais" class="control-label"></label>
+                <select asp-for="Pasajero.Pais" class="control-label"
+                        asp-items="Html.GetEnumSelectList<Models.Pais>()"></select>
+                <span asp-validation-for="Pasajero.Pais" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Pasajero.Pregunta" class="control-label"></label>
+                <select asp-for="Pasajero.Pregunta" asp-items="Model.PreguntasSeguidad">
+                    <option value="">---Escoger---</option>
+                </select>
+                <span asp-validation-for="Pasajero.Pregunta" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Pasajero.Descripcion" class="control-label"></label>
+                <input asp-for="Pasajero.Descripcion" class="form-control" />
+                <span asp-validation-for="Pasajero.Descripcion" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

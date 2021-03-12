@@ -1,0 +1,15 @@
+﻿@page
+@model myFirstRazorPage.Pages.TagHelpers.CustomTagModel
+@{
+    ViewData["Title"] = "CustomTag";
+    bool Aprobado = true;
+}
+
+<h2>CustomTag</h2>
+<div Condition="Aprobado">
+    Usted ha sido aprobado :)
+</div>
+<div Condition="!Aprobado">
+    Usted ha sido rechazado :(
+</div>
+

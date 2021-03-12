@@ -1,0 +1,22 @@
+﻿@page
+@model myFirstRazorPage.Pages.TagHelpers.TagHelperBootstrapModel
+@{
+    ViewData["Title"] = "TagHelperBootstrap";
+}
+
+<h2>TagHelperBootstrap</h2>
+<a href="#" bs-toggle-modal="simpleModalFromAnchor">
+    Launch modal
+</a>
+
+<modal id="simpleModalFromAnchor" title="Modal Title">
+    <modal-body>
+        <h4>Something happened</h4>
+        <p>Something happened</p>
+    </modal-body>
+</modal>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+

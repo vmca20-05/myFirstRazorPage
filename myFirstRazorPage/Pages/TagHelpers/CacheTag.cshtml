@@ -1,0 +1,13 @@
+﻿@page
+@model myFirstRazorPage.Pages.TagHelpers.CacheTagModel
+@{
+    ViewData["Title"] = "CacheTag";
+}
+<h2>CacheTag</h2>
+<span>Sin cache: @DateTime.Now</span>
+<br />
+<cache expires-after="@TimeSpan.FromSeconds(5)">
+    Con chache: @DateTime.Now
+</cache>
+
+
